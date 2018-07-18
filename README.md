@@ -15,5 +15,3 @@ List of included things:
 - **[Discord] Voice Record** - Record the audio of a specific user, upload the file to [send.firefox.com](https://send.firefox.com), send the download link in the chat and DM the original author with the owner token & password. Also allows to change the maximum downloads and allows the owner to delete the file manually.
 - **[Discord] Website Screenshot** - Send a full screenshot of any website into the chat
 - **[Other] Twitch Snapshot** - Make a cropped snapshot of a [Twitch](https://twitch.tv) livestream and convert it to text
-=======
->>>>>>> 9ceac9759c2a3379ae611dcf7100306a515f2eae
