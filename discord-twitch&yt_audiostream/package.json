@@ -1,0 +1,20 @@
+{
+  "name": "discord-twitchyt_audiostream",
+  "version": "1.0.0",
+  "description": "Stream the audio of a livestream in a voice channel",
+  "main": "_.twitch&yt_audiostream.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "github.com/BeepFelix",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "github:discordjs/discord.js",
+    "request": "^2.87.0",
+    "ytdl-core": "^0.20.4",
+    "m3ujs": "github:solvek/m3u.js",
+    "moment": "^2.22.2",
+    "moment-duration-format": "^2.2.2"
+  }
+}

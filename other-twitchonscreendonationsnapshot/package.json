@@ -1,0 +1,16 @@
+{
+  "name": "other-twitchonscreendonationsnapshot",
+  "version": "1.0.0",
+  "description": "Take a screenshot of a specific part of a live twitch stream and convert it to text",
+  "main": "_.twitchSnapshot.js.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "github.com/BeepFelix",
+  "license": "ISC",
+  "dependencies": {
+    "request": "^2.87.0",
+    "sharp": "^0.20.5"
+  }
+}

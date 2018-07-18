@@ -1,0 +1,16 @@
+{
+  "name": "discord-findtwitch",
+  "version": "1.0.0",
+  "description": "Find twitch channels from names and profiles when entering a list of SteamID3's (For example when entering \"status\" in TF2)",
+  "main": "_.findtwitch.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "github.com/BeepFelix",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "github:discordjs/discord.js",
+    "steamcommunity": "^3.36.1"
+  }
+}

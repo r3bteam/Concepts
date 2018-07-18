@@ -1,0 +1,5 @@
+{
+    "twitchClientId": "<Twitch API Client ID>",
+    "ocrAPIKey": "<OCR API Key>",
+    "imgurAPIKey": "<Imgur API Key>"
+}

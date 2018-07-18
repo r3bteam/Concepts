@@ -1,0 +1,36 @@
+# Private
+.vscode
+/node_modules
+/PRIVATE
+/data
+
+# Root
+/package-lock.json
+/package.json
+
+# Subfolders
+discord-fetchallmessages/config.json
+
+discord-awaitreply/config.json
+
+discord-bbstatus/config.json
+
+discord-findtwitch/config.json
+
+discord-gameselection/config.json
+
+discord-hltv/config.json
+
+discord-reuploadtoimgur/config.json
+
+discord-steamsale/config.json
+
+discord-twitch&yt_audiostream/config.json
+
+discord-websitescreenshot/config.json
+
+discord-voicerecord/config.json
+discord-voicerecord/audios
+discord-voicerecord/send-cli
+
+other-twitchonscreendonationsnapshot/config.json

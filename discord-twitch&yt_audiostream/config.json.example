@@ -1,0 +1,6 @@
+{
+    "prefix": "-",
+    "botToken": "<BOTTOKEN>",
+    "twitchClientID": "<Twitch API Client ID>",
+    "youtubeAPIkey": "<YouTube API Key>"
+}

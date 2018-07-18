@@ -1,0 +1,19 @@
+{
+  "name": "discord-voicerecord",
+  "version": "1.0.0",
+  "description": "Record the voice of a specific user and then upload it to send.firefox.com",
+  "main": "_.voiceRecord.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "github.com/BeepFelix",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "github:discordjs/discord.js",
+    "request": "^2.87.0",
+    "wav": "^1.0.2",
+    "moment": "^2.22.2",
+    "moment-duration-format": "^2.2.2"
+  }
+}
