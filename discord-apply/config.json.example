@@ -1,0 +1,7 @@
+{
+    "prefix": "-",
+    "botToken": "<BOT TOKEN>",
+    "channel": "354853192485568512", // Channel you want to send applications in for the staff team to review
+    "role": "469530891895701514", // Role the user gets when accepted
+    "guild": "354852057439535104" // The guild the role changes apply to
+}

@@ -1,0 +1,15 @@
+{
+  "name": "discord-apply",
+  "version": "1.0.0",
+  "description": "PM the bot with \"-apply\" to start the apply-process. You can write up to 10 messages, each messages maximum 2000 chars, you can edit and delete them as you want. \"-submit\" to send the application to the staff team, after that the application cannot be edited again.",
+  "main": "_.apply.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "github.com/BeepFelix",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "github:discordjs/discord.js"
+  }
+}

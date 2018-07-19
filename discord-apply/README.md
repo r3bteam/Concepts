@@ -1,0 +1,2 @@
+# Apply
+PM the bot with "-apply" to start the apply-process. You can write up to 10 messages, each messages maximum 2000 chars, you can edit and delete them as you want. "-submit" to send the application to the staff team, after that the application cannot be edited again.

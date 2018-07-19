@@ -33,4 +33,6 @@ discord-voicerecord/config.json
 discord-voicerecord/audios
 discord-voicerecord/send-cli
 
+discord-apply/config.json
+
 other-twitchcroppedsnapshot/config.json
