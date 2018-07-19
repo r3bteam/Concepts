@@ -1,8 +1,8 @@
 {
-  "name": "other-twitchonscreendonationsnapshot",
+  "name": "other-twitchcroppedsnapshot",
   "version": "1.0.0",
   "description": "Take a screenshot of a specific part of a live twitch stream and convert it to text",
-  "main": "_.twitchSnapshot.js.js",
+  "main": "_.twitchSnapshot.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
