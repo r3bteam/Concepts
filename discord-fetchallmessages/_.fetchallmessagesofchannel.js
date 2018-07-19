@@ -19,8 +19,8 @@ client.on('message', async (msg) => {
 		let messages = await msg.channel.messages.fetch({limit: 100});
 		if (!messages) return m.edit('Well something broke...');
 		var allMessages = messages;
-
-        function fetchMsgs() {
+		
+		function fetchMsgs() {
 			msg.channel.messages.fetch({before: allMessages.last().id, limit: 100}).then(async (messages) => {
 				if (messages.size < 1) {
 					m.edit('Done fetching all ' + allMessages.size + ' messages');
@@ -37,7 +37,7 @@ client.on('message', async (msg) => {
 				m.edit('Well something broke...');
 			});
 		}
-		
+
 		fetchMsgs();
 	}
 });
