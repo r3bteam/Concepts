@@ -13,4 +13,5 @@ List of included things:
 - **[Discord] Twitch & YouTube Audio Stream** - Stream the audio of a [Twitch](https://twitch.tv) or [YouTube](https://youtube.com) livestream
 - **[Discord] Voice Record** - Record the audio of a specific user, upload the file to [send.firefox.com](https://send.firefox.com), send the download link in the chat and DM the original author with the owner token & password. Also allows to change the maximum downloads and allows the owner to delete the file manually.
 - **[Discord] Website Screenshot** - Send a full screenshot of any website into the chat
+- **[Discord] Apply** - DM the bot with "-apply" to apply for *something*. Up to 5 messages, 2000 chars each message (Discord limit), with accept and deny option. *Doesnt save anything in any database nor locally*
 - **[Other] Twitch Snapshot** - Make a cropped snapshot of a [Twitch](https://twitch.tv) livestream and convert it to text
