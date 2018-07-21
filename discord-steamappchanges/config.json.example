@@ -1,0 +1,15 @@
+{
+    "botToken": "<BOTTOKEN>",
+    "SteamWebPipes": "./backend/SteamWebPipes/bin/Release/netcoreapp2.0/SteamWebPipes.dll", // Path to SteamWebPipes.dll
+    "channel": "469977712300392478",
+    "watchedApps": [ // AppIDs of the games you want to watch
+        "730",
+        "745",
+        "740",
+        "741",
+
+        "440",
+        "232250"
+    ],
+    "mentionRole": "354852057439535104" // For everyone enter the Guild ID
+}
