@@ -1,0 +1,16 @@
+{
+  "name": "discord-steamconnection",
+  "version": "1.0.0",
+  "description": "Get the steam profiles connected to a specific user - Breaks Discord ToS & Our user has to share a guild with the user we want to fetch the profile of",
+  "main": "_.steamConnection.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "github.com/BeepFelix",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "github:discordjs/discord.js",
+    "request": "^2.87.0"
+  }
+}

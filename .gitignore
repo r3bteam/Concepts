@@ -42,4 +42,6 @@ discord-steamappchanges/config.json
 discord-steamappchanges/last-changenumber.txt
 /apps.json
 
+discord-steamconnection/config.json
+
 other-twitchcroppedsnapshot/config.json
