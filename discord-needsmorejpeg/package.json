@@ -1,0 +1,16 @@
+{
+  "name": "discord-needsmorejpeg",
+  "version": "1.0.0",
+  "description": "needsmorejpeg.com",
+  "main": "_.needsmorejpeg.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "github.com/BeepFelix",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "github:discordjs/discord.js",
+    "request": "^2.87.0"
+  }
+}
