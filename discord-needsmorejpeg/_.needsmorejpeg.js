@@ -1,5 +1,4 @@
 const request = require('request');
-const cheerio = require('cheerio');
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
