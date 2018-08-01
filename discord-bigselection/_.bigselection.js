@@ -12,6 +12,7 @@ client.on('ready', () => {
 
 
 var collectors = {}; // Collectors - Can be used later to modify the collectors
+var currentData = undefined;
 
 client.on('messageReactionRemove', (messageReaction, user) => {
 	if (collectors[messageReaction.message.id]) { // Original "remove" event doesn't work so we emit the event ourselves 
@@ -29,6 +30,101 @@ client.once('ready', () => {
 
 		createCollectors(channel, messages); // Setup collectors
 	}
+
+	// Start a timer to constantly check if the messages are still fetched
+	// If they are not fetched refetch them and setup the reaction collectors again
+	function checkMessagesCache() {
+		if (!currentData) return setTimeout(checkMessagesCache, 1000); // No current data yet
+
+		var msgIds = Object.keys(currentData.messages);
+		var channel = client.channels.get(currentData.channel);
+		if (!channel) {
+			setTimeout(checkMessagesCache, 1000);
+			return;
+		}
+
+		var i = -1;
+		function refetchMessage() {
+			i = i + 1;
+			if (i >= msgIds.length) {
+				setTimeout(checkMessagesCache, 1000);
+				return;
+			}
+
+			// Skip if message is already fetched
+			if (channel.messages.has(msgIds[i])) return refetchMessage();
+
+			// Fetch the message
+			channel.messages.fetch(msgIds[i]).then((m) => {
+				// Creation collectors don't need time to setup so we can immediately recall the fetch function
+				refetchMessage();
+
+				// Setup the reaction collector
+				const filter = (reaction, user) => !user.bot && currentData.messages[msgIds[i]].includes(reaction.emoji.identifier);
+				collectors[msgIds[i]] = m.createReactionCollector(filter, {});
+	
+				// Collection event
+				collectors[msgIds[i]].on('collect', (r, user) => {
+					// Find the role we want
+					var role = undefined;
+					for (let x = 0; x < config.setup.length; x++) {
+						for (let y = 0; y < config.setup[x].reactions.length; y++) {
+							// Find out if a emote is custom or default
+							var emote = findEmoji(config.setup[x].reactions[y].emote)[0];
+							if (client.emojis.resolve(config.setup[x].reactions[y].emote)) emote = client.emojis.resolve(config.setup[x].reactions[y].emote);
+							if (!emote) continue; // Invalid emoji or no access to it
+	
+							// Check if the reaction the user added is used in our config
+							if (typeof emote === 'string' && config.setup[x].reactions[y].emote === r.emoji.identifier || config.setup[x].reactions[y].emote === emote.id) {
+								role = config.setup[x].reactions[y].role;
+							}
+						}
+					}
+					if (!role) return; // Could not find role ID
+	
+					var guildRole = r.message.guild.roles.get(role);
+					if (!guildRole) return; // Could not get role
+	
+					var guildMember = r.message.guild.member(user);
+					if (!guildMember) return; // Could not get guild member of user
+	
+					// Add role if user doesnt have it
+					if (!guildMember.roles.has(guildRole.id)) guildMember.roles.add(guildRole);
+				});
+	
+				// Remove event - Doesn't work at all - This is why we have the hacky thing at the top
+				collectors[msgIds[i]].on('remove', (r, user) => {
+					// Find the role we want
+					var role = undefined;
+					for (let x = 0; x < config.setup.length; x++) {
+						for (let y = 0; y < config.setup[x].reactions.length; y++) {
+							// Find out if a emote is custom or default
+							var emote = findEmoji(config.setup[x].reactions[y].emote)[0];
+							if (client.emojis.resolve(config.setup[x].reactions[y].emote)) emote = client.emojis.resolve(config.setup[x].reactions[y].emote);
+							if (!emote) continue; // Invalid emoji or no access to it
+	
+							// Check if the reaction the user added is used in our config
+							if (typeof emote === 'string' && config.setup[x].reactions[y].emote === r.emoji.identifier || config.setup[x].reactions[y].emote === emote.id) {
+								role = config.setup[x].reactions[y].role;
+							}
+						}
+					}
+					if (!role) return; // Could not find role ID
+	
+					var guildRole = r.message.guild.roles.get(role);
+					if (!guildRole) return; // Could not get role
+	
+					var guildMember = r.message.guild.member(user);
+					if (!guildMember) return; // Could not get guild member of user
+	
+					// Remove role if user has it
+					if (guildMember.roles.has(guildRole.id)) guildMember.roles.remove(guildRole);
+				});
+			});
+		}
+		refetchMessage();
+	}
+	setTimeout(checkMessagesCache, 10000);
 });
 
 client.on('message', async (msg) => {
@@ -100,6 +196,11 @@ client.on('error', (error) => console.error(error));
 client.login(config.botToken);
 
 function createCollectors(channel, messages) {
+	// Save channel ID
+	currentData = {};
+	currentData.channel = channel.id;
+	currentData.messages = messages;
+
 	// Get all keys (message IDs) of the messages object
 	var msgIds = Object.keys(messages);
 
@@ -108,7 +209,7 @@ function createCollectors(channel, messages) {
 		channel.messages.fetch(msgIds[i]).then((m) => {
 			// Setup the reaction collector
 			const filter = (reaction, user) => !user.bot && messages[msgIds[i]].includes(reaction.emoji.identifier);
-			collectors[msgIds[i]] = m.createReactionCollector(filter, {}); // I think reaction collectors keep a message always cached - Not sure on this
+			collectors[msgIds[i]] = m.createReactionCollector(filter, {});
 
 			// Collection event
 			collectors[msgIds[i]].on('collect', (r, user) => {
