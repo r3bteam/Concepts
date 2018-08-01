@@ -11,6 +11,8 @@
   "license": "ISC",
   "dependencies": {
     "discord.js": "github:discordjs/discord.js",
-    "hltv": "^2.7.3"
+    "hltv": "^2.7.3",
+    "moment": "^2.22.2",
+    "moment-duration-format": "^2.2.2"
   }
 }
