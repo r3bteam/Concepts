@@ -1,0 +1,15 @@
+{
+  "name": "discord-bigselection",
+  "version": "1.0.0",
+  "description": "Make a selection screen using a configuration file with basically infinite length",
+  "main": "_.bigselection.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "github.com/BeepFelix",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "github:discordjs/discord.js"
+  }
+}
