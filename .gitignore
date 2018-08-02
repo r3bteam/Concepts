@@ -35,9 +35,8 @@ discord-voicerecord/send-cli
 
 discord-apply/config.json
 
-discord-steamappchanges/backend/.vs
-discord-steamappchanges/backend/SteamWebPipes
-discord-steamappchanges/backend/SteamWebPipes.sln
+discord-steamappchanges/backend
+!discord-steamappchanges/backend/README.md
 discord-steamappchanges/config.json
 discord-steamappchanges/last-changenumber.txt
 /apps.json
