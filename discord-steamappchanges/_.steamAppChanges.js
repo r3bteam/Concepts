@@ -123,8 +123,8 @@ client.once('ready', () => {
 
 				if (!client.channels.get(config.channel)) return;
 
-				if (mention) client.channels.get(config.channel).send(client.channels.get(config.channel).guild.roles.get(config.mentionRole).toString(), {embed: embed});
-				else client.channels.get(config.channel).send({embed: embed});
+				if (mention) client.channels.get(config.channel).send(client.channels.get(config.channel).guild.roles.get(config.mentionRole).toString(), {embed: embed}).catch((e) => console.error(e));
+				else client.channels.get(config.channel).send({embed: embed}).catch((e) => console.error(e));
 				return;
 			}
 
