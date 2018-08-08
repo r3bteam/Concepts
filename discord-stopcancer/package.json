@@ -1,0 +1,17 @@
+{
+  "name": "discord-stopcancer",
+  "version": "1.0.0",
+  "description": "Fucking hell cancer names",
+  "main": "_.stopcancer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "github.com/BeepFelix",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "github:discordjs/discord.js",
+    "limax": "^1.6.0",
+    "unorm": "^1.4.1"
+  }
+}

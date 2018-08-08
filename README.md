@@ -10,12 +10,15 @@ List of included things:
 - **[Discord] Find Twitch** - Finds simple twitch links from SteamID3's
 - **[Discord] Game Selection** - A menu where you can give yourself specific roles
 - **[Discord] HLTV** - Display the round logs of a ongoing CSGO match from [HLTV](https://hltv.org)
+- **[Discord] Inviter** - Gets the person who invited another user when said user joins the server
 - **[Discord] Needs More JPEG** - needsmorejpeg.com
 - **[Discord] Reupload to Imgur** - Automatically reupload all image attachments sent in a specific channel to imgur and DM the author with the link
 - **[Discord] Steam Account Generator** - Automatically generate an account on Steam using toxic.gq/steam
 - **[Discord] Steam App Changes** - List all app changes from Steam in a channel (very spammy) - Similar to [SteamDB Realtime](https://steamdb.info/realtime/)
 - **[Discord] Steam Connection** - List all steam accounts connected to a specific user - **Breaks Discord ToS**
 - **[Discord] Steam Sale** - Display the time until the next Steam Sale as activity and when getting mentioned
+- **[Discord] Stop Cancer** - Sets the nickname of people with cancerous names to normal readable/writable names
+- **[Discord] Trust Factor** - Allows you to check a users trust-score based on several factors. Can be hooked up to a "guildMemberAdd" event - **Breaks Discord ToS**
 - **[Discord] Twitch & YouTube Audio Stream** - Stream the audio of a [Twitch](https://twitch.tv) or [YouTube](https://youtube.com) livestream
 - **[Discord] Voice Record** - Record the audio of a specific user, upload the file to [send.firefox.com](https://send.firefox.com), send the download link in the chat and DM the original author with the owner token & password. Also allows to change the maximum downloads and allows the owner to delete the file manually.
 - **[Discord] Website Screenshot** - Send a full screenshot of any website into the chat

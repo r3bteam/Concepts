@@ -1,0 +1,16 @@
+{
+  "name": "discord-trustfactor",
+  "version": "1.0.0",
+  "description": "Gives users a \"trust factor\" score depending on account age and other things",
+  "main": "_.trustfactor.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "github.com/BeepFelix",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "github:discordjs/discord.js",
+    "request": "^2.87.0"
+  }
+}

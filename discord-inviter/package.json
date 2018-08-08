@@ -1,0 +1,17 @@
+{
+  "name": "discord-inviter",
+  "version": "1.0.0",
+  "description": "When a user joins the guild the bot tries to figure out which invite the user used",
+  "main": "_.inviter.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "github.com/BeepFelix",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "github:discordjs/discord.js",
+    "moment": "^2.22.2",
+    "moment-duration-format": "^2.2.2"
+  }
+}
