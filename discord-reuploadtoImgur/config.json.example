@@ -1,5 +1,6 @@
 {
     "prefix": "-",
     "botToken": "<BOTTOKEN>",
-    "channel": "465977460685799445"
+    "channel": "465977460685799445",
+    "clientID": "<IMGUR CLIENT ID>"
 }
