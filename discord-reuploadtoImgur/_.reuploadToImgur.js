@@ -24,7 +24,7 @@ client.on('message', async (msg) => {
 						type: 'url'
 					},
 					headers: {
-						Authorization: 'Client-ID 3a698dbfb361607',
+						Authorization: 'Client-ID ' + config.clientID,
 						Accept: 'application/json'
 					}
 				}, (error, response, body) => {
