@@ -13,6 +13,7 @@ List of included things:
 - **[Discord] Inviter** - Gets the person who invited another user when said user joins the server
 - **[Discord] Needs More JPEG** - needsmorejpeg.com
 - **[Discord] Reupload to Imgur** - Automatically reupload all image attachments sent in a specific channel to imgur and DM the author with the link
+- **[Discord] Slider** - Makes a YouTube-Like bar
 - **[Discord] Steam Account Generator** - Automatically generate an account on Steam using toxic.gq/steam
 - **[Discord] Steam App Changes** - List all app changes from Steam in a channel (very spammy) - Similar to [SteamDB Realtime](https://steamdb.info/realtime/)
 - **[Discord] Steam Connection** - List all steam accounts connected to a specific user - **Breaks Discord ToS**
