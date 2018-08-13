@@ -1,7 +1,3 @@
-const request = require('request');
-const cheerio = require('cheerio');
-const moment = require('moment');
-require('moment-duration-format');
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
