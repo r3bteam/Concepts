@@ -33,17 +33,37 @@ client.on('message', async (msg) => {
 		for (let i = 0; i < 10; i++) slider.push(String.fromCodePoint(9473));
 		slider[parseInt(closest10 / 10)] = '⬤';
 
-		msg.channel.send(((parseInt(closest10 / 10) === 0) ? '*Only supports Windows 10 😒*\n\n' : '') + '```\nVideo is ' + percentage.toFixed(2) + '% done playing\n' + secToString(elapsed) + ' ' + slider.join('') + ' ' + secToString(total) + '```');
+		msg.channel.send(((parseInt(closest10 / 10) === 0) ? '*When the slider is on the very left it is broken for Windows 7 users and maybe other platforms too*\n\n' : '') + '```\nVideo is ' + percentage.toFixed(2) + '% done playing\n' + secToString(elapsed) + ' ' + slider.join('') + ' ' + secToString(total) + '```');
 	}
 });
 
 function secToString(secs) {
 	var mins = 0;
+	var hours = 0;
+	var days = 0;
+
 	while (secs >= 60) {
 		mins = mins + 1;
 		secs = secs - 60;
 	}
-	return mins + ':' + ((secs <= 9) ? ('0' + secs) : (secs));
+
+	while (mins >= 60) {
+		hours = hours + 1;
+		mins = mins - 60;
+	}
+
+	while (hours >= 24) {
+		days = days + 1;
+		hours = hours - 24;
+	}
+
+	if (days >= 1) {
+		return days + ':' + ((hours <= 9) ? ('0' + hours) : (hours)) + ':' + ((mins <= 9) ? ('0' + mins) : (mins)) + ':' + ((secs <= 9) ? ('0' + secs) : (secs));
+	} else if (hours >= 1) {
+		return hours + ':' + ((mins <= 9) ? ('0' + mins) : (mins)) + ':' + ((secs <= 9) ? ('0' + secs) : (secs));
+	} else {
+		return mins + ':' + ((secs <= 9) ? ('0' + secs) : (secs));
+	}
 }
 
 client.on('warn', (warn) => console.warn(warn));
