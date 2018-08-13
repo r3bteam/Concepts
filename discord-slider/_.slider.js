@@ -34,6 +34,118 @@ client.on('message', async (msg) => {
 		slider[parseInt(closest10 / 10)] = '⬤';
 
 		msg.channel.send(((parseInt(closest10 / 10) === 0) ? '*When the slider is on the very left it is broken for Windows 7 users and maybe other platforms too*\n\n' : '') + '```\nVideo is ' + percentage.toFixed(2) + '% done playing\n' + secToString(elapsed) + ' ' + slider.join('') + ' ' + secToString(total) + '```');
+	} else if (command === 'volume' || command === 'vol') {
+		var vol = 50 // This would be your current player volume between 10 and 100
+
+		var percentage = parseFloat((vol / 100) * 100);
+		var closest10 = Math.round(percentage / 10) * 10;
+		var slider = [];
+		for (let i = 0; i < 10; i++) slider.push(String.fromCodePoint(9473));
+		slider[parseInt(closest10 / 10)] = '⬤';
+
+		var m = await msg.channel.send('0% ' + slider.join('') + ' 100% (' + percentage.toFixed(2) + '%)');
+
+		// ⬅ 0⃣ 1⃣ 2⃣ 3⃣ 4⃣ 5⃣ 6⃣ 7⃣ 8⃣ 9⃣ 🔟 ➡
+		var cancelAdddition = false;
+		m.react('⬅').then((r) => {
+			if (cancelAdddition) return r.users.remove();
+
+			m.react('0⃣').then((r) => {
+				if (cancelAdddition) return r.users.remove();
+
+				m.react('1⃣').then((r) => {
+					if (cancelAdddition) return r.users.remove();
+
+					m.react('2⃣').then((r) => {
+						if (cancelAdddition) return r.users.remove();
+
+						m.react('3⃣').then((r) => {
+							if (cancelAdddition) return r.users.remove();
+
+							m.react('4⃣').then((r) => {
+								if (cancelAdddition) return r.users.remove();
+
+								m.react('5⃣').then((r) => {
+									if (cancelAdddition) return r.users.remove();
+
+									m.react('6⃣').then((r) => {
+										if (cancelAdddition) return r.users.remove();
+
+										m.react('7⃣').then((r) => {
+											if (cancelAdddition) return r.users.remove();
+
+											m.react('8⃣').then((r) => {
+												if (cancelAdddition) return r.users.remove();
+
+												m.react('9⃣').then((r) => {
+													if (cancelAdddition) return r.users.remove();
+
+													m.react('🔟').then((r) => {
+														if (cancelAdddition) return r.users.remove();
+
+														m.react('➡').then((r) => {
+															if (cancelAdddition) return r.users.remove();
+														});
+													});
+												});
+											});
+										});
+									});
+								});
+							});
+						});
+					});
+				});
+			});
+		}).catch((e) => console.error(e));
+
+		const filter = (reaction, user) => [ '⬅', '0⃣', '1⃣', '2⃣', '3⃣', '4⃣', '5⃣', '6⃣', '7⃣', '8⃣', '9⃣', '🔟', '➡' ].includes(reaction.emoji.name) && user.id === msg.author.id;
+		const collector = m.createReactionCollector(filter, { time: 300000 });
+		collector.on('collect', (r, user) => {
+			r.users.remove(user);
+
+			var numbers = [ '0⃣', '1⃣', '2⃣', '3⃣', '4⃣', '5⃣', '6⃣', '7⃣', '8⃣', '9⃣', '🔟' ];
+			if (numbers.includes(r.emoji.name)) {
+				var num = numbers.indexOf(r.emoji.name);
+				vol = (num * 10);
+
+				var percentage = parseFloat((vol / 100) * 100);
+				var closest10 = Math.round(percentage / 10) * 10;
+				var slider = [];
+				for (let i = 0; i < 10; i++) slider.push(String.fromCodePoint(9473));
+				slider[parseInt(closest10 / 10)] = '⬤';
+
+				m.edit('0% ' + slider.join('') + ' 100% (' + percentage.toFixed(2) + '%)');
+			} else if (r.emoji.name === '⬅') {
+				vol = vol - 10;
+				if (vol < 0) vol = 100;
+
+				var percentage = parseFloat((vol / 100) * 100);
+				var closest10 = Math.round(percentage / 10) * 10;
+				var slider = [];
+				for (let i = 0; i < 10; i++) slider.push(String.fromCodePoint(9473));
+				slider[parseInt(closest10 / 10)] = '⬤';
+
+				m.edit('0% ' + slider.join('') + ' 100% (' + percentage.toFixed(2) + '%)');
+			} else if (r.emoji.name === '➡') {
+				vol = vol + 10;
+				if (vol > 100) vol = 0;
+
+				var percentage = parseFloat((vol / 100) * 100);
+				var closest10 = Math.round(percentage / 10) * 10;
+				var slider = [];
+				for (let i = 0; i < 10; i++) slider.push(String.fromCodePoint(9473));
+				slider[parseInt(closest10 / 10)] = '⬤';
+
+				m.edit('0% ' + slider.join('') + ' 100% (' + percentage.toFixed(2) + '%)');
+			}
+		});
+		collector.on('end', (collected) => {
+			cancelAdddition = true;
+			m.reactions.forEach((r) => {
+				if (r.me) r.users.remove();
+			});
+		});
 	}
 });
 
