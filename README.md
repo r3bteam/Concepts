@@ -21,6 +21,7 @@ List of included things:
 - **[Discord] Stop Cancer** - Sets the nickname of people with cancerous names to normal readable/writable names
 - **[Discord] Trust Factor** - Allows you to check a users trust-score based on several factors. Can be hooked up to a "guildMemberAdd" event - **Breaks Discord ToS**
 - **[Discord] Twitch & YouTube Audio Stream** - Stream the audio of a [Twitch](https://twitch.tv) or [YouTube](https://youtube.com) livestream
+- **[Discord] Virus Total** - Reuploads every attachment sent to [Virus Total](https://www.virustotal.com). (Very slow)
 - **[Discord] Voice Record** - Record the audio of a specific user, upload the file to [send.firefox.com](https://send.firefox.com), send the download link in the chat and DM the original author with the owner token & password. Also allows to change the maximum downloads and allows the owner to delete the file manually.
 - **[Discord] Website Screenshot** - Send a full screenshot of any website into the chat
 - **[Other] Twitch Snapshot** - Make a cropped snapshot of a [Twitch](https://twitch.tv) livestream and convert it to text
