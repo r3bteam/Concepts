@@ -188,14 +188,14 @@ client.on('message', async (msg) => {
 		if (!msg.mentions || msg.mentions.members.size < 1) return msg.channel.send(config.prefix + 'record <user mention>');
 
 		var userToJoin = msg.mentions.members.first();
-		if (!userToJoin.voiceChannel) return msg.channel.send('User is not in a voice channel');
-		if (!userToJoin.voiceChannel.joinable) return msg.channel.send('I cannot join that voice channel');
+		if (!userToJoin.voice.channel) return msg.channel.send('User is not in a voice channel');
+		if (!userToJoin.voice.channel.joinable) return msg.channel.send('I cannot join that voice channel');
 		if (!fs.existsSync('./audios')) fs.mkdirSync('./audios');
 		if (fs.existsSync('./audios/' + userToJoin.id + '.wav')) return msg.channel.send('A file from this user is currently being recorded or uploaded. Please wait!');
 
 		var m = await msg.channel.send('Joining...');
 
-		userToJoin.voiceChannel.join().then((connection) => {
+		userToJoin.voice.channel.join().then((connection) => {
 			var start = new Date().getTime();
 
 			var outputFileStream = new FileWriter('./audios/' + userToJoin.id + '.wav', {
@@ -203,7 +203,7 @@ client.on('message', async (msg) => {
 				channels: 3
 			});
 
-			var stream = connection.createReceiver().createStream(userToJoin.user, { end: 'manual', mode: 'pcm' });
+			var stream = connection.receiver.createStream(userToJoin.user, { end: 'manual', mode: 'pcm' });
 			stream.pipe(outputFileStream);
 
 			stream.on('end', async () => {
@@ -295,7 +295,7 @@ client.on('message', async (msg) => {
 			});
 
 			var interval = setInterval(() => {
-				if (!userToJoin.voiceChannel || userToJoin.voiceChannelID !== msg.guild.me.voiceChannelID || (new Date().getTime() - start) >= 300000) {
+				if (!userToJoin.voice.channel || userToJoin.voice.channelID !== msg.guild.me.voice.channelID || (new Date().getTime() - start) >= 300000) {
 					clearInterval(interval);
 					stream.destroy();
 					if (!collector.ended) collector.stop();
