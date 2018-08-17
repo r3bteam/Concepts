@@ -1,0 +1,38 @@
+{
+    "botToken": "<BOTTOKEN>",
+    "prefix": "-",
+
+    "courserColor": "#000000",
+	"emotes": {
+		"colors": {
+			"red": {
+				"identifier": "479857721936445442",
+				"hex": "#FF0000"
+			},
+			"green": {
+				"identifier": "479857722024656919",
+				"hex": "#00FF00"
+			},
+			"blue": {
+				"identifier": "479857722570047488",
+				"hex": "#0000FF"
+			},
+			"white": {
+				"identifier": "479872326784122900",
+				"hex": "#FFFFFF"
+			}
+		},
+		"controls": {
+			"draw": "✏",
+			"allUp": "⏫",
+			"allDown": "⏬",
+			"allLeft": "⏪",
+			"allRight": "⏩",
+			"up": "🔼",
+			"down": "🔽",
+			"left": "◀",
+			"right": "▶",
+			"end": "⏹"
+		}
+	}
+}
