@@ -158,14 +158,20 @@ client.on('message', async (msg) => {
 			calculated.user.premiumSince = (trustFactorFactors.user.premiumSince ? parseInt(Math.round((new Date().getTime() - trustFactorFactors.user.premiumSince) / 1000 / 60 / 60 / 24)) : 0); // The higher the number the longer the user has been premium for
 
 			var bits = trustFactorFactors.user.flags.toString(2).split('').reverse();
+			console.log(bits);
+
+			// Some flag descriptions may be inaccurate. 
 			if (bits[0] === '1') calculated.user.flags = 100; // Discord Staff
 			else if (bits[1] === '1') calculated.user.flags = 75; // Partner
 			else if (bits[3] === '1') calculated.user.flags = 75; // Bug Hunter - Usually did a lot of work for Discord
 			else if (bits[2] === '1') calculated.user.flags = 25; // Hypesquad (Anyone can get into hypesquad)
 			else if (bits[4] === '1') calculated.user.flags = 25; // Custodian - Unused
-			else if (bits[5] === '1') calculated.user.flags = 10; // Unknown flag - Doesn't exist (yet)
-			else if (bits[6] === '1') calculated.user.flags = 10; // Unknown flag - Doesn't exist (yet)
-			else if (bits[7] === '1') calculated.user.flags = 10; // Unknown flag - Doesn't exist (yet)
+			else if (bits[5] === '1') calculated.user.flags = 10; // Unknown flag (Literally no idea what this is)
+			else if (bits[6] === '1') calculated.user.flags = 10; // HypeSquad house (Bravery?) - Technically not needed since user also has normal Hypesquad
+			else if (bits[7] === '1') calculated.user.flags = 10; // HypeSquad house (Brilliance?) - Technically not needed since user also has normal Hypesquad
+			else if (bits[8] === '1') calculated.user.flags = 10; // HypeSquad house (Balance?) - Technically not needed since user also has normal Hypesquad
+			else if (bits[9] === '1') calculated.user.flags = 10; // Unknown flag - Doesn't exist (yet?)
+			else if (bits[10] === '1') calculated.user.flags = 10; // Unknown flag - Doesn't exist (yet?)
 			else calculated.user.flags = 0; // User has no flags
 
 			calculated.user.bot = (trustFactorFactors.user.bot ? 100 : 0); // Bots are a tiny bit more trusted than users
