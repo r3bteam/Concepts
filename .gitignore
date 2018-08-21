@@ -39,6 +39,7 @@ discord-steamappchanges/backend
 !discord-steamappchanges/backend/README.md
 discord-steamappchanges/config.json
 discord-steamappchanges/last-changenumber.txt
+discord-steamappchanges/apps.json
 /apps.json
 
 discord-steamconnection/config.json
@@ -61,5 +62,7 @@ discord-slider/config.json
 discord-virustotal/config.json
 
 discord-drawimage/config.json
+
+discord-antispam/config.json
 
 other-twitchcroppedsnapshot/config.json
