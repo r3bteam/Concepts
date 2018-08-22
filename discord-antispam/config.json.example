@@ -1,0 +1,9 @@
+{
+    "botToken": "<BOTTOKEN>",
+    "spam": {
+        "messages": 5,
+        "withinSec": 5,
+        "timeout": 5000
+    }
+    "prefix": "-"
+}
