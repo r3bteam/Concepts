@@ -1,0 +1,7 @@
+{
+    "botToken": "<BOTTOKEN>",
+    "prefix": "-",
+    "guild": "/* Snowflake of the our guild */",
+    "gameRole": "/* Snowflake of the role to give */",
+    "game": "/* Snowflake or Game name */"
+}
