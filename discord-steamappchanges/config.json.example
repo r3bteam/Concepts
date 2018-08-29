@@ -11,5 +11,6 @@
         "440",
         "232250"
     ],
-    "mentionRole": "354852057439535104" // For everyone enter the Guild ID
+    "mentionRole": "354852057439535104", // For everyone enter the Guild ID
+    "debug": false
 }
