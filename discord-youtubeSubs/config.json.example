@@ -1,0 +1,7 @@
+{
+    "botToken": "<BOTTOKEN>",
+    "userToken": "<USERTOKEN>",
+    "ourChannelID": "<OurYouTubeChannelID>",
+    "googleAPIKey": "<GOOGLEAPIKEY>",
+    "prefix": "-"
+}
