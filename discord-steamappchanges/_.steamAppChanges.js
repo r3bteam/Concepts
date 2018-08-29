@@ -65,7 +65,13 @@ function startChildProcess() {
 
 	var once = false;
 
+	child.stderr.on('data', (data) => {
+		if (config.debug) console.log(data.toString());
+	});
+
 	child.stdout.on('data', (data) => {
+		if (config.debug) console.log(data.toString());
+
 		if (once === false) {
 			once = true;
 			setTimeout(startWebSocketConnection, 5000);
@@ -127,6 +133,7 @@ function startWebSocketConnection() {
 
 		if (json.Type == 'LogOff') {
 			console.log('Disconnected from SteamWebPipes');
+			setTimeout(restartWebSocket, 10000);
 			return;
 		}
 
