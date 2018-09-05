@@ -1,0 +1,8 @@
+{
+    "botToken": "<BOTTOKEN>",
+    "prefix": "-",
+    "eventID": 3885,
+    "embedColor": "#EF770E",
+    "channelID": "479464398365392926",
+    "loopDelay": 30000
+}

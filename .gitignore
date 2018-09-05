@@ -69,4 +69,7 @@ discord-gamerole/config.json
 
 discord-youtubeSubs/config.json
 
+discord-tournamentnotifications/config.json
+discord-tournamentnotifications/dontTriggerOn.json
+
 other-twitchcroppedsnapshot/config.json

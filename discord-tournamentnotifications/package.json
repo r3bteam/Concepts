@@ -1,0 +1,18 @@
+{
+  "name": "discord-tournamentnotifications",
+  "version": "1.0.0",
+  "description": "Checks HLTV for results and writes a message in a specific channel when a new result of a specific event appears.",
+  "main": "_.tournamentNotifications.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "github.com/BeepFelix",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "github:discordjs/discord.js",
+    "hltv": "^2.7.3",
+    "moment": "^2.22.2",
+    "moment-duration-format": "^2.2.2"
+  }
+}
