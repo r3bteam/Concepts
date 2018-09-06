@@ -49,6 +49,8 @@ client.once('ready', () => {
 						allowedToSend = true;
 						dontTriggerOn.push(majorMatches[i].id);
 						fs.writeFileSync('./dontTriggerOn.json', JSON.stringify(dontTriggerOn, null, 4));
+					} else {
+						continue;
 					}
 
 					var matchInfo = await HLTV.getMatch({ id: majorMatches[i].id });
