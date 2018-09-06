@@ -19,10 +19,11 @@ client.on('message', async (msg) => {
 	const command = args.shift().slice(config.prefix.length).toLowerCase();
 
 	if (command === 'join') {
+		console.log(msg.member.voice.channel);
 		if (!args[0]) return msg.channel.send('Usage: ' + config.prefix + 'join <channelName>').catch(() => {});
-		if (!msg.member.voiceChannel) return msg.channel.send('Join a voice channel').catch(() => {});
-		if (!msg.member.voiceChannel.joinable) return msg.channel.send('I cannot join').catch(() => {});
-		if (msg.guild.me.voiceChannel) return msg.channel.send('Already playing').catch(() => {});
+		if (!msg.member.voice.channel) return msg.channel.send('Join a voice channel').catch(() => {});
+		if (!msg.member.voice.channel.joinable) return msg.channel.send('I cannot join').catch(() => {});
+		if (msg.guild.me.voice.channel) return msg.channel.send('Already playing').catch(() => {});
 
 		var m = await msg.channel.send('***Please wait...***\n\n🔁 Get channel info\n📨 Get access tokens\n📨 Get direct streaming urls\n📨 Join voice channel\n📨 Start stream').catch(() => {});
 		if (!m) return; // Failed to send message
@@ -106,7 +107,7 @@ client.on('message', async (msg) => {
 
 						await m.edit('***Please wait...***\n\n☑ Verify video ID\n☑ Get channel info\n☑ Get direct streaming url\n🔁 Join voice channel\n📨 Start stream');
 
-						msg.member.voiceChannel.join().then(async (connection) => {
+						msg.member.voice.channel.join().then(async (connection) => {
 							await m.edit('***Please wait...***\n\n☑ Verify video ID\n☑ Get channel info\n☑ Get direct streaming url\n☑ Join voice channel\n🔁 Start stream');
 
 							await m.edit('***Now streaming `' + channelName + '`***\n*It can take a few seconds for the audio to start streaming*\n\nNow available commands: ```md\ntime - Display current streaming duration\n\n# ' + msg.author.tag + ' only\nstop - Stop the stream```\n\n☑ Verify video ID\n☑ Get channel info\n☑ Get direct streaming url\n☑ Join voice channel\n☑ Start stream');
@@ -128,7 +129,7 @@ client.on('message', async (msg) => {
 										m = await m.channel.messages.fetch(m.id).catch(() => {});
 										if (m) m.edit('***`' + channelName + ' has stopped streaming`***\n\n☑ Verify video ID\n☑ Get channel info\n☑ Get direct streaming url\n☑ Join voice channel\n☑ Start stream');
 										if (collector && !collector.ended) collector.stop();
-										if (msg.guild.me.voiceChannel) msg.guild.me.voiceChannel.leave();
+										if (msg.guild.me.voice.channel) msg.guild.me.voice.channel.leave();
 									}, 5000);
 								}
 							});
@@ -142,7 +143,7 @@ client.on('message', async (msg) => {
 								if (command === 'stop' && msg.author.id === m.author.id) {
 									stream.end();
 									if (collector && !collector.ended) collector.stop();
-									if (msg.guild.me.voiceChannel) await msg.guild.me.voiceChannel.leave();
+									if (msg.guild.me.voice.channel) await msg.guild.me.voice.channel.leave();
 									msg.channel.send('Successfully stopped playing `' + channelName + '`');
 								} else if (command === 'time' || command === 'duration') {
 									msg.channel.send('Stream Time: ' + moment.duration(stream.streamTime).format('H [hrs], m [mins], s [secs]') + '\nTotal Stream Time: (Including pauses) ' + moment.duration(stream.totalStreamTime).format('H [hrs], m [mins], s [secs]'));
@@ -216,7 +217,7 @@ client.on('message', async (msg) => {
 
 						await m.edit('***Please wait...***\n\n☑ Get channel info\n☑ Get access tokens\n☑ Get direct streaming urls\n🔁 Join voice channel\n📨 Start stream');
 
-						msg.member.voiceChannel.join().then(async (connection) => {
+						msg.member.voice.channel.join().then(async (connection) => {
 							await m.edit('***Please wait...***\n\n☑ Get channel info\n☑ Get access tokens\n☑ Get direct streaming urls\n☑ Join voice channel\n🔁 Start stream');
 
 							await m.edit('***Now streaming `' + channelName + '`***\n*It can take a few seconds for the audio to start streaming*\n\nNow available commands: ```md\ntime - Display current streaming duration\n\n# ' + msg.author.tag + ' only\nstop - Stop the stream```\n\n☑ Get channel info\n☑ Get access tokens\n☑ Get direct streaming urls\n☑ Join voice channel\n☑ Start stream');
@@ -238,7 +239,7 @@ client.on('message', async (msg) => {
 										m = await m.channel.messages.fetch(m.id).catch(() => {});
 										if (m) m.edit('***`' + channelName + ' has stopped streaming`***\n\n☑ Verify video ID\n☑ Get channel info\n☑ Get direct streaming url\n☑ Join voice channel\n☑ Start stream');
 										if (collector && !collector.ended) collector.stop();
-										if (msg.guild.me.voiceChannel) msg.guild.me.voiceChannel.leave();
+										if (msg.guild.me.voice.channel) msg.guild.me.voice.channel.leave();
 									}, 5000);
 								}
 							});
@@ -252,7 +253,7 @@ client.on('message', async (msg) => {
 								if (command === 'stop' && msg.author.id === m.author.id) {
 									stream.end();
 									if (collector && !collector.ended) collector.stop();
-									if (msg.guild.me.voiceChannel) await msg.guild.me.voiceChannel.leave();
+									if (msg.guild.me.voice.channel) await msg.guild.me.voice.channel.leave();
 									msg.channel.send('Successfully stopped playing `' + channelName + '`');
 								} else if (command === 'time' || command === 'duration') {
 									msg.channel.send('Stream Time: ' + moment.duration(stream.streamTime).format('H [hrs], m [mins], s [secs]') + '\nTotal Stream Time: (Including pauses) ' + moment.duration(stream.totalStreamTime).format('H [hrs], m [mins], s [secs]'));
@@ -268,8 +269,8 @@ client.on('message', async (msg) => {
 			}
 		});
 	} else if (command === 'releave') {
-		msg.member.voiceChannel.join().then(() => {
-			msg.guild.me.voiceChannel.leave();
+		msg.member.voice.channel.join().then(() => {
+			msg.guild.me.voice.channel.leave();
 			msg.channel.send('Done');
 		});
 	}
