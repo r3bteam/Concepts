@@ -1,0 +1,6 @@
+{
+    "webhook": {
+        "id": "<WebhookID>",
+        "token": "<WebhookToken>"
+    }
+}

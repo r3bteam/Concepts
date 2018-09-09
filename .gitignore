@@ -72,4 +72,8 @@ discord-youtubeSubs/config.json
 discord-tournamentnotifications/config.json
 discord-tournamentnotifications/dontTriggerOn.json
 
+discord-nhentai/config.json
+
+discord-askouija/config.json
+
 other-twitchcroppedsnapshot/config.json
