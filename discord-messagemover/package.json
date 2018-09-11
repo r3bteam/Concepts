@@ -1,0 +1,15 @@
+{
+  "name": "discord-messagemover",
+  "version": "1.0.0",
+  "description": "Move messages from one channel to another",
+  "main": "_.messagemover.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "github.com/BeepFelix",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "github:discordjs/discord.js"
+  }
+}
