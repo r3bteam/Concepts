@@ -1,0 +1,15 @@
+{
+  "name": "discord-privatechannel",
+  "version": "1.0.0",
+  "description": "Allows users to create a private channel they can edit and delete whenever they want",
+  "main": "_.privatechannel.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "github.com/BeepFelix",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "github:discordjs/discord.js"
+  }
+}

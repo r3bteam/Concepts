@@ -15,8 +15,10 @@ List of included things:
 - **[Discord] Game Selection** - A menu where you can give yourself specific roles
 - **[Discord] HLTV** - Display the round logs of a ongoing CSGO match from [HLTV](https://hltv.org)
 - **[Discord] Inviter** - Gets the person who invited another user when said user joins the server
+- **[Discord] Message Mover** - Move a message from one channel to another using webhooks
 - **[Discord] Needs More JPEG** - needsmorejpeg.com
 - **[Discord] nHentai** - Responds with a gallery from nhentai when a number is posted which fits
+- **[Discord] Private Channel** - Allows users to create a private channel they can edit and delete whenever they want
 - **[Discord] Reupload to Imgur** - Automatically reupload all image attachments sent in a specific channel to imgur and DM the author with the link
 - **[Discord] Slider** - Makes a YouTube-Like bar
 - **[Discord] Steam Account Generator** - Automatically generate an account on Steam using toxic.gq/steam
