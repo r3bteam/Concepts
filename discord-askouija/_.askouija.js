@@ -5,6 +5,8 @@ const commentStream = new RedditStream('comments', 'AskOuija');
 commentStream.start();
 
 commentStream.on('new', async (comments) => {
+	if (comments.length >= 100) return;
+
 	var filteredComments = [];
 
 	for (let i in comments) {
