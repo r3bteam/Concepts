@@ -7,7 +7,7 @@ const client = new Discord.Client();
 
 const config = require('./config.json');
 
-var ws = undefined
+var ws = undefined;
 var appNames = {};
 
 client.on('ready', () => {
@@ -45,6 +45,48 @@ client.once('ready', () => {
 	});
 });
 
+client.on('message', async (msg) => {
+	if (!msg.guild) return;
+	if (msg.author.id !== '138377192278196225') return;
+
+	if (msg.content.match(new RegExp('<@!?(' + client.user.id + ')>'))) {
+		msg.channel.send('My prefix is: `' + config.prefix + '`');
+		return;
+	}
+
+	if (msg.content.indexOf(config.prefix) !== 0) return;
+
+	const args = msg.content.split(/ +/g);
+	const command = args.shift().slice(config.prefix.length).toLowerCase();
+
+	if (command === 'update') {
+		var m = await msg.channel.send('Updating app list...');
+		var old = Object.keys(appNames).length;
+
+		request('https://api.steampowered.com/ISteamApps/GetAppList/v2', (err, res, body) => {
+			if (err) return console.error(err);
+
+			var json = undefined;
+			try {
+				json = JSON.parse(body);
+			} catch(err) {};
+
+			if (!json || !json.applist || !json.applist.apps || json.applist.apps.length < 1) {
+				m.edit('Invalid Steam API response');
+				return;
+			}
+
+			appNames = {};
+			for (let i = 0; i < json.applist.apps.length; i++) appNames[json.applist.apps[i].appid] = json.applist.apps[i].name;
+			fs.writeFileSync('./apps.json', JSON.stringify(appNames, null, 4));
+
+			m.edit('Successfully updated app list. Old length: ' + old + '. New length: ' + Object.keys(appNames).length);
+		});
+	} else if (command === 'reboot') {
+		msg.channel.send('Rebooting');
+	}
+});
+
 client.on('warn', (warn) => console.warn(warn));
 client.on('error', (error) => {
 	// There should never be an error unless it is a connection error
@@ -55,12 +97,28 @@ client.on('error', (error) => {
 
 client.login(config.botToken).catch((e) => console.error(e));
 
+process.on('uncaughtException', console.error);
+process.on('unhandledRejection', console.error);
+
 function startChildProcess() {
 	const child = childProcess.spawn('dotnet', [ config.SteamWebPipes ]);
 	child.on('exit', (code, signal) => {
 		console.log('Exited with code ' + code + ' - Signal: ' + signal);
 
-		setTimeout(startChildProcess, 5000);
+		if (process.platform === 'linux') { // Sometimes the childprocess exists but the dotnet process itself is still running. So here we check for it and terminate it
+			childProcess.exec('ps -A | grep dotnet', (err, stdout, stderr) => {
+				if (err) { // No dotnet process running
+					setTimeout(startChildProcess, 5000);
+				} else {
+					stdout.trim();
+					childProcess.exec('kill ' + stdout.split(/\s+/)[0], (err, stdout, stderr) => { // Result is irrelevant
+						setTimeout(startChildProcess, 5000);
+					});
+				}
+			});
+		} else {
+			setTimeout(startChildProcess, 5000);
+		}
 	});
 
 	var once = false;
@@ -74,7 +132,7 @@ function startChildProcess() {
 
 		if (once === false) {
 			once = true;
-			setTimeout(startWebSocketConnection, 5000);
+			setTimeout(startWebSocketConnection, 15000);
 		}
 	});
 }
@@ -103,7 +161,7 @@ function restartWebSocket() {
 }
 
 function startWebSocketConnection() {
-	ws = new WebSocket('ws://localhost:8181');
+	ws = new WebSocket('ws://127.0.0.1:12903');
 
 	ws.onopen = () => {
 		console.log('Successfully connected to WebSocket');
