@@ -83,7 +83,8 @@ client.on('message', async (msg) => {
 			m.edit('Successfully updated app list. Old length: ' + old + '. New length: ' + Object.keys(appNames).length);
 		});
 	} else if (command === 'reboot') {
-		msg.channel.send('Rebooting');
+		await msg.channel.send('Rebooting');
+		process.exit(); // Should automatically start up again
 	}
 });
 
