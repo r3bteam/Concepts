@@ -21,12 +21,14 @@ List of included things:
 - **[Discord] Private Channel** - Allows users to create a private channel they can edit and delete whenever they want
 - **[Discord] Reupload to Imgur** - Automatically reupload all image attachments sent in a specific channel to imgur and DM the author with the link
 - **[Discord] Slider** - Makes a YouTube-Like bar
+- **[Discord] Sound Loop** - Loop back your voice!
 - **[Discord] Steam Account Generator** - Automatically generate an account on Steam using toxic.gq/steam
 - **[Discord] Steam App Changes** - List all app changes from Steam in a channel (very spammy) - Similar to [SteamDB Realtime](https://steamdb.info/realtime/)
 - **[Discord] Steam Connection** - List all steam accounts connected to a specific user
 - **[Discord] Steam Sale** - Display the time until the next Steam Sale as activity and when getting mentioned
 - **[Discord] Stop Cancer** - Sets the nickname of people with cancerous names to normal readable/writable names
 - **[Discord] Tournament Notifications** - Checks HLTV for results and writes a message in a specific channel when a new result of a specific event appears
+- **[Discord] Translate** - Add a flag as reaction to a message in order to translate it to that specific language
 - **[Discord] Trust Factor** - Allows you to check a users trust-score based on several factors. Can be hooked up to a "guildMemberAdd" event
 - **[Discord] Twitch & YouTube Audio Stream** - Stream the audio of a [Twitch](https://twitch.tv) or [YouTube](https://youtube.com) livestream
 - **[Discord] Virus Total** - Reuploads every attachment sent to [Virus Total](https://www.virustotal.com). (Very slow)

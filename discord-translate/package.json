@@ -1,0 +1,17 @@
+{
+  "name": "discord-translate",
+  "version": "1.0.0",
+  "description": "Automatically translate text",
+  "main": "_.translate.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "github.com/BeepFelix",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "github:discordjs/discord.js",
+    "google-translate-api": "^2.3.0",
+    "country-emoji": "^1.2.0"
+  }
+}
