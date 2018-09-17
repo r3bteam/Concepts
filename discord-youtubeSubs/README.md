@@ -8,3 +8,5 @@ You can put this inside a loop and make it for all users in your guild. Just mak
 Notes:
 - User has to have his YouTube account linked to Discord
 - User has to have his YouTube privacy set so everyone can see their subscriber list (https://support.google.com/youtube/answer/7280190?hl=en)
+
+*I never fully tested this*

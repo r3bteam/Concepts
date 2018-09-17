@@ -19,7 +19,6 @@ client.on('message', async (msg) => {
 	const command = args.shift().slice(config.prefix.length).toLowerCase();
 
 	if (command === 'join') {
-		console.log(msg.member.voice.channel);
 		if (!args[0]) return msg.channel.send('Usage: ' + config.prefix + 'join <channelName>').catch(() => {});
 		if (!msg.member.voice.channel) return msg.channel.send('Join a voice channel').catch(() => {});
 		if (!msg.member.voice.channel.joinable) return msg.channel.send('I cannot join').catch(() => {});
@@ -111,7 +110,7 @@ client.on('message', async (msg) => {
 							await m.edit('***Please wait...***\n\n☑ Verify video ID\n☑ Get channel info\n☑ Get direct streaming url\n☑ Join voice channel\n🔁 Start stream');
 
 							await m.edit('***Now streaming `' + channelName + '`***\n*It can take a few seconds for the audio to start streaming*\n\nNow available commands: ```md\ntime - Display current streaming duration\n\n# ' + msg.author.tag + ' only\nstop - Stop the stream```\n\n☑ Verify video ID\n☑ Get channel info\n☑ Get direct streaming url\n☑ Join voice channel\n☑ Start stream');
-							var stream = connection.play(data.hlsvp);
+							var stream = connection.play(data.hlsvp); // All of the sudden this is SUPER SUPER laggy and barely works. I sadly don't know why.
 
 							var onlyOnce = false;
 							var streamEnd = undefined;
@@ -276,8 +275,9 @@ client.on('message', async (msg) => {
 	}
 });
 
-client.on('warn', (warn) => console.warn(warn));
+client.on('debug', (debug) => console.debug(debug));
 
+client.on('warn', (warn) => console.warn(warn));
 client.on('error', (error) => console.error(error));
 
 client.login(config.botToken);

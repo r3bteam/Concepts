@@ -21,7 +21,7 @@ client.on('message', async (msg) => {
 
 		var userID = undefined;
 		if (!userID && /^\d+/g.test(args[0])) userID = args[0];
-		if (!userID && new RegExp(msg.mentions.USERS_PATTERN).test(args[0])) userID = msg.mentions.users.first();
+		if (!userID && new RegExp(msg.mentions.USERS_PATTERN).test(args[0])) userID = msg.mentions.users.first().id;
 		if (!userID) return m.edit('Could not find specified user');
 
 		var user = undefined;

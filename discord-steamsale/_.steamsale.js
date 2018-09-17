@@ -77,7 +77,7 @@ client.on('message', async (msg) => {
 			var saleDate = moment.utc(sale.StartDate).valueOf() - moment.utc().valueOf();
 			var duration = moment.duration(saleDate).format(' D [days], H [hrs], m [mins], s [secs]');
 			
-			if (saleDate > 0) msg.channel.send(sale.Name + ': LIVE');
+			if (saleDate <= 0) msg.channel.send(sale.Name + ': LIVE');
 			else msg.channel.send(sale.Name + ': ' + duration);
 		});
 	}

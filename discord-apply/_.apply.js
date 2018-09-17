@@ -14,9 +14,7 @@ client.on('message', async (msg) => {
 	const args = msg.content.split(/ +/g);
 	const command = args.shift().slice(config.prefix.length).toLowerCase();
 
-	if (command === 'test') {
-		msg.channel.messages.fetch(args[0]).then((m) => m.delete());
-	} else if (command === 'apply' && msg.channel.type === 'dm') {
+	if (command === 'apply' && msg.channel.type === 'dm') {
 		var m = await msg.channel.send({embed: {
 			title: 'Please wait...',
 			description: 'I am verifying whever or not you have already sent an application.\n\nDepending on the amount of applications already sent this can take a little while. Please stay patient!'

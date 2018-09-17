@@ -30,11 +30,6 @@ client.on('message', async (msg) => {
 			return;
 		}
 
-		if (!Discord.MessageMentions.CHANNELS_PATTERN.test(args[0])) {
-			msg.channel.send('Invalid channel specified');
-			return;
-		}
-
 		var toChannel = msg.guild.channels.get(args[0].replace(/<#|>/g, '')); // Makes it easier to get the channels rather than doing the msg.mentions.channels thing
 		if (!toChannel) {
 			msg.channel.send('Could not find mentioned channel');
@@ -65,7 +60,7 @@ client.on('message', async (msg) => {
 			else var wb = wbs.first();
 
 			wb.send(message.content || '', { username: message.author.tag, avatarURL: message.author.avatarURL(), embeds: message.embeds, files: message.attachments.array() }).then(() => {
-				m.edit('Moved message from user ' + Discord.Util.escapeMarkdownw(message.author.tag) + ' from ' + fromChannel.toString() + ' to ' + toChannel.toString());
+				m.edit('Moved message from user ' + Discord.Util.escapeMarkdown(message.author.tag) + ' from ' + fromChannel.toString() + ' to ' + toChannel.toString());
 			}).catch((e) => {
 				m.edit(e.message || 'Unknown Error');
 			})

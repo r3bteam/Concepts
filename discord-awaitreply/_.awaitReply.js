@@ -26,6 +26,7 @@ client.on('message', async (msg) => {
 				embed.setTitle(err);
 				m.edit({embed: embed});
 			});
+			if (!response) return;
 			
 			embed.setTimestamp();
 			embed.setTitle(response.content);

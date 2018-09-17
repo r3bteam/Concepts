@@ -39,8 +39,6 @@ client.on('message', async (msg) => {
 			url: 'https://toxic.gq/steam/api',
 			body: JSON.stringify({ new: 1 })
 		}, async (error, response, body) => {
-			console.log(response);
-
 			if (error) {
 				console.error(error);
 				await m.edit('Failed to make API request to toxic.gq/steam');

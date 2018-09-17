@@ -126,8 +126,8 @@ client.on('message', async (msg) => {
 				trustFactorFactors.member.lastMessage.channel = member.lastMessageChannelID;
 				trustFactorFactors.member.lastMessage.id = member.lastMessageID;
 				trustFactorFactors.member.permissions = member.permissions;
-				trustFactorFactors.member.serverDeaf = member.serverDeaf;
-				trustFactorFactors.member.serverMute = member.serverMute;
+				trustFactorFactors.member.serverDeaf = member.voicestate.serverDeaf;
+				trustFactorFactors.member.serverMute = member.voicestate.serverMute;
 			}
 
 			var calculated = {

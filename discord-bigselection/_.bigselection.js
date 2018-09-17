@@ -9,8 +9,6 @@ client.on('ready', () => {
 	console.log('Ready to spy on ' + client.users.size + ' users, in ' + client.channels.size + ' channels of ' + client.guilds.size + ' servers as ' + client.user.tag + '.');
 });
 
-
-
 var collectors = {}; // Collectors - Can be used later to modify the collectors
 var currentData = undefined;
 
@@ -180,6 +178,8 @@ client.on('message', async (msg) => {
 					// Add the reaction to the message
 					m.react(emote).then((r) => {
 						messages[m.id].push(r.emoji.identifier); // Add the reaction to the message array
+						addReaction(); // Continue with the next reaction
+					}).catch(() => {
 						addReaction(); // Continue with the next reaction
 					});
 				}
