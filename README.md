@@ -8,6 +8,7 @@ List of included things:
 - **[Discord] Await Reply** - Simple waiting for a reply from a user
 - **[Discord] BB Status** - Display the current status of [BlargBot](https://blargbot.xyz)'s clusters & shards
 - **[Discord] Big Reaction Selection** - Create a *almost* infinite big selection screen for roles with multiple messages
+- **[Discord] Download Assets** - Automatically download all assets of a specific App ID
 - **[Discord] Draw Image** - Draw an image in discord!
 - **[Discord] Fetch all messages** - Fetch ALL messages in a channel
 - **[Discord] Find Twitch** - Finds simple twitch links from SteamID3's

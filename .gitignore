@@ -84,4 +84,7 @@ discord-translate/config.json
 
 discord-soundloop/config.json
 
+discord-downloadassets/assets
+discord-downloadassets/config.json
+
 other-twitchcroppedsnapshot/config.json
