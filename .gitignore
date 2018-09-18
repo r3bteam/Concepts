@@ -87,4 +87,6 @@ discord-soundloop/config.json
 discord-downloadassets/assets
 discord-downloadassets/config.json
 
+discord-csgorank/config.json
+
 other-twitchcroppedsnapshot/config.json
