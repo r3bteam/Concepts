@@ -131,7 +131,7 @@ discordClient.on('message', async (msg) => {
 			msg.channel.send({ embed: {
 				title: 'Please add me on Steam',
 				url: 'https://steamcommunity.com/profiles/' + steamClient.steamID.getSteamID64(),
-				color: Discord.Util.resolveColor('orange')
+				color: Discord.Util.resolveColor('#ffaa00')
 			}}).then((m) => {
 				onGoing.set(msg.author.id, { date: new Date(), steamid: steamid, channel: m.channel.id, message: m.id });
 			});
@@ -140,7 +140,7 @@ discordClient.on('message', async (msg) => {
 				msg.channel.send({ embed: {
 					title: 'Error',
 					description: err,
-					color: Discord.Util.resolveColor('red')
+					color: Discord.Util.resolveColor('#ff0000')
 				}});
 			} else {
 				console.error(err);
@@ -148,7 +148,7 @@ discordClient.on('message', async (msg) => {
 				msg.channel.send({ embed: {
 					title: 'Error',
 					description: 'Failed to contact Steam API',
-					color: Discord.Util.resolveColor('red')
+					color: Discord.Util.resolveColor('#ff0000')
 				}});
 			}
 		});
@@ -215,7 +215,7 @@ steamClient.on('friendRelationship', async (sid, relationship) => {
 
 				m.edit({ embed: {
 					title: 'You have been assigned ' + member.guild.roles.get(config.ranks[profile.ranking.rankId]).name,
-					color: Discord.Util.resolveColor('green')
+					color: Discord.Util.resolveColor('#00ff00')
 				}});
 			}).catch((e) => {
 				if (!m || m.deleted) return;
@@ -223,7 +223,7 @@ steamClient.on('friendRelationship', async (sid, relationship) => {
 				m.edit({ embed: {
 					title: 'Failed to assign a role',
 					description: e.message || e,
-					color: Discord.Util.resolveColor('red')
+					color: Discord.Util.resolveColor('#ff0000')
 				}});
 			});
 		});
